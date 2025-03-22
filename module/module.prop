@@ -1,6 +1,7 @@
 id=XiaomiEsimLPA
 name=Xiaomi eSIM LPA
-author=tehcneko
+author=tehcneko, HankAviator
 version=v4
 versionCode=4
 description=Native eSIM management support for Xiaomi devices with MIUI and Xiaomi HyperOS.
+
