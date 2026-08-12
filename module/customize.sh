@@ -81,7 +81,18 @@ set_permissions() {
 ui_print "*****************"
 ui_print "$name $version"
 ui_print "*****************"
-if [ -d /product/priv-app/EsimLPA ] && ! echo "$MODPATH" | grep -q "/product"; then
+
+system_lpa_present=false
+for lpa_apk in \
+	/product/priv-app/EsimLPA/*.apk \
+	/system/product/priv-app/EsimLPA/*.apk; do
+	if [ -f "$lpa_apk" ]; then
+		system_lpa_present=true
+		break
+	fi
+done
+
+if [ "$system_lpa_present" = true ]; then
 	ui_print "LPA app is already present in the system image."
 	ui_print "Using the system version."
 	rm -rf "$MODPATH/system/product/priv-app/MIUIEsimLPA"
